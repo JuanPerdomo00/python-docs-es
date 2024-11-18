@@ -52,7 +52,7 @@ jobs:
       - name: Obtiene la lista de archivos .po con cambios (sólo en PRs)
         if: github.event_name == 'pull_request'
         id: changed-po-files
-        uses: tj-actions/changed-files@v41
+        uses: tj-actions/changed-files@v45
         with:
           files: |
              **/*.po
@@ -77,7 +77,7 @@ jobs:
           diff -Naur TRANSLATORS <(LANG=es python scripts/sort.py < TRANSLATORS)
       - name: Powrap
         if: steps.po-files-to-check.outputs.any_po_files_to_check == 'true'
-        run: powrap --check --quiet ${{ steps.po-files-to-check.outputs.po_files_to_check }}
+        run: powrap --diff --check --quiet ${{ steps.po-files-to-check.outputs.po_files_to_check }}
       - name: Sphinx lint
         if: steps.po-files-to-check.outputs.any_po_files_to_check == 'true'
         run: sphinx-lint ${{ steps.po-files-to-check.outputs.po_files_to_check }}
@@ -88,13 +88,5 @@ jobs:
       # Construcción de la documentación
       - name: Construir documentación
         run: |
-          # FIXME: Relative paths for includes in 'cpython'
-          sed -i -e 's|.. include:: ../includes/wasm-notavail.rst|.. include:: ../../../../includes/wasm-notavail.rst|g' cpython/Doc/**/*.rst
-          sed -i -e 's|.. include:: ../distutils/_setuptools_disclaimer.rst|.. include:: ../../../../distutils/_setuptools_disclaimer.rst|g' cpython/Doc/**/*.rst
-          sed -i -e 's|.. include:: ./_setuptools_disclaimer.rst|.. include:: ../../../_setuptools_disclaimer.rst|g' cpython/Doc/**/*.rst
-          sed -i -e 's|.. include:: token-list.inc|.. include:: ../../../token-list.inc|g' cpython/Doc/**/*.rst
-          sed -i -e 's|.. include:: ../../using/venv-create.inc|.. include:: ../using/venv-create.inc|g' cpython/Doc/**/*.rst
-          sed -i -e 's|.. include:: ../../../using/venv-create.inc|.. include:: ../../using/venv-create.inc|g' cpython/Doc/**/*.rst
-          sed -i -e 's|.. include:: /using/venv-create.inc|.. include:: ../../../../using/venv-create.inc|g' cpython/Doc/**/*.rst
           # Normal build
           PYTHONWARNINGS=ignore::FutureWarning,ignore::RuntimeWarning sphinx-build -j auto -W --keep-going -b html -d cpython/Doc/_build/doctree -D language=es . cpython/Doc/_build/html
