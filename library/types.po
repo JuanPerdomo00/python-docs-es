@@ -409,7 +409,7 @@ msgid ""
 "stored in the :attr:`__spec__` object."
 msgstr ""
 "Este atributo debe coincidir con :attr:`importlib.machinery.ModuleSpec."
-"loader`como almacenado en el objeto :attr:`__spec__`."
+"loader` como almacenado en el objeto :attr:`__spec__`."
 
 #: ../Doc/library/types.rst:285
 msgid ""
