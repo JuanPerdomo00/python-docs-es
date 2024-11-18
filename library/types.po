@@ -164,11 +164,11 @@ msgid ""
 "the return tuple unchanged."
 msgstr ""
 "Esta función busca elementos en *bases* que no sean instancias de :class:"
-"`type`, y devuelve una tupla donde cada objeto que tiene una :meth:El método "
-"`~object.__mro_entries__` se reemplaza con un resultado descomprimido de "
-"llamando a este método. Si un elemento *bases* es una instancia de :class:"
-"`type`, o no tiene un método :meth:`!__mro_entries__`, entonces está "
-"incluido en la tupla de retorno no ha cambiado."
+"`type`, y retorna una tupla donde cada objeto que tenga un método"
+":meth:`~object.__mro_entries__` se reemplaza con un resultado descomprimido "
+"de llamar a este método. Si un elemento de *bases* es una instancia de "
+":class:`type`, o no tiene un método :meth:`!__mro_entries__`, entonces es "
+"incluido sin cambios en la tupla de retorno."
 
 #: ../Doc/library/types.rst:87
 msgid ""
@@ -177,10 +177,10 @@ msgid ""
 "(following the mechanisms laid out in :pep:`560`). This is useful for "
 "introspecting :ref:`Generics <user-defined-generics>`."
 msgstr ""
-"Devuelve la tupla de objetos originalmente dados como bases de *cls* antes "
-"el método :meth:`~object.__mro_entries__` ha sido llamado por cualquier "
-"motivo (siguiendo los mecanismos establecidos en :pep:`560`). Esto es útil "
-"para introspección :ref:`Genéricos <genéricos-definidos por el usuario>`."
+"Retorna la tupla de objetos originalmente dados como bases de *cls* antes "
+"de que el método :meth:`~object.__mro_entries__` sea llamado en cualquier "
+"base (siguiendo los mecanismos establecidos en :pep:`560`). Esto es útil "
+"para introspección :ref:`Genéricos <user-defined-generics>`"
 
 #: ../Doc/library/types.rst:92
 msgid ""
@@ -189,8 +189,8 @@ msgid ""
 "``__orig_bases__`` attribute, ``cls.__bases__`` is returned."
 msgstr ""
 "Para las clases que tienen un atributo ``__orig_bases__``, esta función "
-"devuelve el valor de ``cls.__orig_bases__``. Para clases sin Se devuelve el "
-"atributo ``__orig_bases__``, ``cls.__bases__``."
+"retorna el valor de ``cls.__orig_bases__``. Para clases sin el atributo "
+"``__orig_bases__``, se retorna ``cls.__bases__``."
 
 #: ../Doc/library/types.rst:97
 msgid "Examples::"
@@ -507,7 +507,7 @@ msgstr "Este tipo ahora puede heredarse."
 
 #: ../Doc/library/types.rst:357
 msgid ":ref:`Generic Alias Types<types-genericalias>`"
-msgstr ":ref:`Tipos de alias genéricos<tipos-aliasgenéricos>`"
+msgstr ":ref:`Tipos de alias genéricos<types-genericalias>`"
 
 #: ../Doc/library/types.rst:357
 msgid "In-depth documentation on instances of :class:`!types.GenericAlias`"
@@ -516,7 +516,7 @@ msgstr ""
 
 #: ../Doc/library/types.rst:359
 msgid ":pep:`585` - Type Hinting Generics In Standard Collections"
-msgstr ":pep:`585` - Escriba sugerencias genéricas en colecciones estándar"
+msgstr ":pep:`585` - Sugerencias de tipo genéricas en colecciones estándar"
 
 #: ../Doc/library/types.rst:360
 msgid "Introducing the :class:`!types.GenericAlias` class"
@@ -767,12 +767,12 @@ msgid ""
 "However, it may not necessarily implement the :meth:`~object.__await__` "
 "method."
 msgstr ""
-"Esta función transforma una función :term:`generadora` en una :term:`función "
-"de rutina` que devuelve una rutina basada en generador. La La corrutina "
-"basada en generador sigue siendo un :term:`iterador de generador`, pero "
-"también es se considera un objeto :term:`coroutine` y es :term:`awaitable`."
-"Sin embargo, es posible que no implemente necesariamente :meth:`~object."
-"__await__`método."
+"Esta función transforma una función :term:`generator` en una :term:`coroutine "
+"function` que devuelve una corrutina basada en generador. La corrutina "
+"basada en generador sigue siendo un :term:`generator iterator`, pero "
+"también se considera un objeto :term:`coroutine` y es :term:`awaitable`."
+"Sin embargo, es posible que no implemente necesariamente el método "
+":meth:`~object.__await__`."
 
 #: ../Doc/library/types.rst:538
 msgid "If *gen_func* is a generator function, it will be modified in-place."
@@ -796,4 +796,4 @@ msgstr "built-in function"
 
 #: ../Doc/library/types.rst:189
 msgid "compile"
-msgstr "compilar"
+msgstr "compile"
